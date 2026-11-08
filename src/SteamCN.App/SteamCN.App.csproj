@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <OutputType>WinExe</OutputType>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>SteamCN.ico</ApplicationIcon>
+    <EnableDefaultPageItems>false</EnableDefaultPageItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../SteamCN.Core/SteamCN.Core.csproj" />
+    <ProjectReference Include="../SteamCN.Compatibility/SteamCN.Compatibility.csproj" />
+    <ProjectReference Include="../SteamCN.Ocr/SteamCN.Ocr.csproj" />
+    <ProjectReference Include="../SteamCN.Windows/SteamCN.Windows.csproj" />
+    <ProjectReference Include="../SteamCN.Translation/SteamCN.Translation.csproj" />
+    <ProjectReference Include="../SteamCN.Storage/SteamCN.Storage.csproj" />
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="2.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.14" />
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="10.0.14" />
+    <ApplicationDefinition Include="SteamCN.App/App.xaml" />
+    <EmbeddedResource Include="SteamCN.App/UiTheme.xaml" LogicalName="SteamCN.App.Ui.UiTheme.xaml" />
+    <EmbeddedResource Include="SteamCN.App/MainWindow.xaml" LogicalName="SteamCN.App.Ui.MainWindow.xaml" />
+    <EmbeddedResource Include="SteamCN.App/FloatingBallWindow.xaml" LogicalName="SteamCN.App.Ui.FloatingBallWindow.xaml" />
+    <EmbeddedResource Include="SteamCN.ico" LogicalName="SteamCN.App.Icon.ico" />
+    <Content Include="resources/glossary.default.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+  </ItemGroup>
+</Project>
