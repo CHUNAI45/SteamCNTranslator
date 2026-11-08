@@ -1,0 +1,8 @@
+<Project>
+  <PropertyGroup>
+    <Version>1.1.0</Version>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+</Project>

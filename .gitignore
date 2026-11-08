@@ -1,0 +1,13 @@
+bin/
+obj/
+.vs/
+artifacts/
+*.user
+*.suo
+*.log
+*.db
+*.db-shm
+*.db-wal
+.env
+.env.*
+language_packages/

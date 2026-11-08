@@ -59,6 +59,31 @@
 
 当前测试版是从已有 Windows 程序恢复并修改后构建的。现有本地工程分为桌面界面、窗口与网页区域核验、OCR、段落处理和翻译引擎等模块。发布准备仍包括核实原始源码与第三方资源的许可、整理依赖，以及验证其他人能在干净的 Windows 环境中从源码构建。
 
-项目采用 [MIT 许可证](LICENSE)。原始源码正在整理，仓库目前还未提供经过独立构建验证的源码。
+项目采用 [MIT 许可证](LICENSE)。目录中的代码由项目原有 Windows 发布版恢复，并整理为可独立构建的 .NET 解决方案。第三方依赖通过 NuGet 还原，适用各自的许可证。
+
+## 从源码构建
+
+在 Windows x64 上安装 [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)，然后在仓库根目录运行：
+
+```powershell
+dotnet build SteamCNTranslator.sln -c Release
+dotnet run --project src/SteamCN.App/SteamCN.App.csproj -c Release
+```
+
+要生成可分发的 Windows x64 发布目录，可以运行：
+
+```powershell
+dotnet publish src/SteamCN.App/SteamCN.App.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true -o artifacts/win-x64
+```
+
+| 目录 | 职责 |
+| --- | --- |
+| `src/SteamCN.App` | WPF 主窗口、悬浮菜单、设置和启动逻辑 |
+| `src/SteamCN.Windows` | Steam 窗口绑定、网页区域核验和译文覆盖层 |
+| `src/SteamCN.Ocr` | Windows OCR 接入 |
+| `src/SteamCN.Core` | 语言检测、段落处理、翻译调度及共享接口 |
+| `src/SteamCN.Translation` | 翻译引擎、逐段返回与自动回退 |
+| `src/SteamCN.Storage` | 设置、术语词典和翻译缓存 |
+| `src/SteamCN.Compatibility` | 页面分类和兼容性诊断 |
 
 本项目与 Valve 或 Steam 无隶属关系。
