@@ -1,0 +1,30 @@
+<Grid xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Border Width="36" Height="36" Background="{StaticResource UiShadow}" IsHitTestVisible="False">
+    <Border.RenderTransform><TranslateTransform X="4" Y="4" /></Border.RenderTransform>
+  </Border>
+  <Border Name="BallFace" Width="36" Height="36" Background="{StaticResource UiCanvas}" BorderBrush="{StaticResource UiLine}" BorderThickness="2">
+    <TextBlock Text="译" Foreground="{StaticResource UiInk}" FontSize="17" FontWeight="Bold"
+               HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False" />
+  </Border>
+  <Popup Name="QuickPanel" Placement="Top" StaysOpen="False" AllowsTransparency="True" PopupAnimation="Fade"
+         HorizontalOffset="-104" PlacementTarget="{Binding ElementName=BallFace}">
+    <ContentControl Style="{StaticResource UiCard}" Padding="16" Margin="10">
+      <StackPanel Width="224" TextElement.FontSize="14" TextElement.Foreground="{StaticResource UiInk}">
+        <Border Background="{StaticResource UiPink}" Width="28" Height="4" HorizontalAlignment="Left" Margin="0,0,0,8" />
+        <TextBlock Text="SteamCN Translator" Style="{StaticResource UiHeading}" FontSize="18" Margin="0,0,0,14" />
+        <Button Name="BtnPauseResume" Content="暂停翻译" Margin="0,0,0,12" />
+        <Button Name="BtnShowHide" Content="显示 / 隐藏译文" />
+        <TextBlock Text="显示模式" Style="{StaticResource UiLabel}" Margin="0,16,0,8" />
+        <UniformGrid Columns="3">
+          <Button Name="BtnModeBilingual" Content="双语" Tag="Bilingual" Padding="7,7" Margin="0,0,8,0" />
+          <Button Name="BtnModeChinese" Content="中文" Tag="ChineseOnly" Padding="7,7" Margin="0,0,8,0" />
+          <Button Name="BtnModeOriginal" Content="原文" Tag="OriginalOnly" Padding="7,7" />
+        </UniformGrid>
+        <Button Name="BtnRescan" Content="重新扫描当前页面" Margin="0,16,0,12" />
+        <Button Name="BtnSettings" Content="打开完整设置" Margin="0,0,0,12" />
+        <Button Name="BtnExit" Content="退出程序" />
+      </StackPanel>
+    </ContentControl>
+  </Popup>
+</Grid>

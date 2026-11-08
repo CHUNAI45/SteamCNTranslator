@@ -1,0 +1,270 @@
+<Grid xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="{StaticResource UiCanvas}" UseLayoutRounding="True">
+  <Grid MaxWidth="1120">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" /><RowDefinition Height="*" /><RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <ContentControl Style="{StaticResource UiCard}" Padding="0" Margin="24,22,28,20">
+      <Grid>
+        <Grid.ColumnDefinitions><ColumnDefinition Width="7" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+        <Border Background="{StaticResource UiPink}" />
+        <Grid Grid.Column="1" Margin="20,16,20,16">
+          <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+          <Border Width="52" Height="52" Background="{StaticResource UiCanvas}" BorderBrush="{StaticResource UiLine}" BorderThickness="2">
+            <Image Width="38" Height="38" RenderOptions.BitmapScalingMode="HighQuality" Source="{StaticResource UiBrandIcon}" />
+          </Border>
+          <StackPanel Grid.Column="1" Margin="16,0,12,0" VerticalAlignment="Center">
+            <TextBlock Text="SteamCN Translator" FontSize="32" FontWeight="ExtraBold" Foreground="{StaticResource UiInk}" />
+            <TextBlock Text="Steam 页面翻译" Style="{StaticResource UiCaption}" Margin="0,2,0,0" />
+          </StackPanel>
+          <Border Grid.Column="2" Style="{StaticResource UiBadge}" Background="{StaticResource UiPinkTint}" VerticalAlignment="Center">
+            <TextBlock Text="简体中文" Style="{StaticResource UiLabel}" />
+          </Border>
+        </Grid>
+      </Grid>
+    </ContentControl>
+
+    <TabControl Grid.Row="1" AutomationProperties.Name="设置分类">
+      <TabItem Header="概览">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+          <StackPanel Margin="24,9,24,18">
+            <ContentControl Style="{StaticResource UiCard}" Padding="24,20">
+              <Grid>
+                <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                <StackPanel Margin="0,0,24,0">
+                  <TextBlock Text="翻译状态" Style="{StaticResource UiHeading}" />
+                  <Border Style="{StaticResource UiBadge}" HorizontalAlignment="Left" Margin="0,12,0,8">
+                    <StackPanel Orientation="Horizontal">
+                      <Rectangle Name="StatusDot" Width="8" Height="8" Fill="#666666" VerticalAlignment="Center" Margin="0,0,7,0" />
+                      <TextBlock Name="StatusText" Text="未启动" FontSize="13" FontWeight="Bold" Foreground="{StaticResource UiSuccess}" />
+                    </StackPanel>
+                  </Border>
+                  <TextBlock Name="DetailStatus" Text="等待启动…" Style="{StaticResource UiCaption}" />
+                </StackPanel>
+                <Button Name="BtnToggle" Grid.Column="1" Content="启动翻译" Style="{StaticResource UiPrimary}"
+                        MinWidth="148" VerticalAlignment="Center" />
+              </Grid>
+            </ContentControl>
+
+            <Grid Margin="0,24,0,0">
+              <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="24" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+              <ContentControl Style="{StaticResource UiCard}" Padding="22">
+                <StackPanel>
+                  <TextBlock Text="Steam 连接" Style="{StaticResource UiHeading}" FontSize="20" />
+                  <TextBlock Name="StatusSteam" Text="未绑定" FontWeight="SemiBold" Margin="0,8,0,0" TextWrapping="Wrap" />
+                  <TextBlock Name="BoundWindowText" Text="无绑定窗口" Style="{StaticResource UiCaption}" Margin="0,4,0,0" />
+                  <Button Name="BtnRescan" Content="重新扫描" HorizontalAlignment="Left" Margin="0,12,0,0" />
+                </StackPanel>
+              </ContentControl>
+              <ContentControl Grid.Column="2" Style="{StaticResource UiCard}" Padding="22">
+                <StackPanel>
+                  <TextBlock Text="翻译引擎" Style="{StaticResource UiHeading}" FontSize="20" />
+                  <TextBlock Name="StatusEngine" Text="未安装" FontWeight="SemiBold" Margin="0,8,0,0" TextWrapping="Wrap" />
+                  <TextBlock Name="StatusPackages" Text="未安装" Style="{StaticResource UiCaption}" Margin="0,4,0,0" />
+                  <TextBlock Name="StatusTranslation" Text="待机" Style="{StaticResource UiCaption}" Margin="0,8,0,0" />
+                </StackPanel>
+              </ContentControl>
+            </Grid>
+
+            <ContentControl Style="{StaticResource UiCard}" Margin="0,24,0,4" Padding="22,16">
+              <StackPanel>
+                <Grid>
+                  <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                  <TextBlock Text="实时诊断" Style="{StaticResource UiHeading}" FontSize="20" VerticalAlignment="Center" />
+                  <Button Name="BtnToggleDiag" Grid.Column="1" Content="展开" MinHeight="34" Padding="18,6" />
+                </Grid>
+                <StackPanel Name="DiagPanel" Visibility="Collapsed" Margin="0,16,0,4">
+                  <UniformGrid Columns="2">
+                    <StackPanel Margin="0,0,12,10"><TextBlock Text="窗口截图" Style="{StaticResource UiLabel}" /><TextBlock Name="DiagCapture" Text="未执行" TextWrapping="Wrap" /></StackPanel>
+                    <StackPanel Margin="0,0,0,10"><TextBlock Text="翻译引擎" Style="{StaticResource UiLabel}" /><TextBlock Name="DiagEngine" Text="未执行" TextWrapping="Wrap" /></StackPanel>
+                    <StackPanel Margin="0,0,12,10"><TextBlock Text="UIA 文本" Style="{StaticResource UiLabel}" /><TextBlock Name="DiagUia" Text="未执行" /></StackPanel>
+                    <StackPanel Margin="0,0,0,10"><TextBlock Text="OCR 文本" Style="{StaticResource UiLabel}" /><TextBlock Name="DiagOcr" Text="未执行" /></StackPanel>
+                    <StackPanel Margin="0,0,12,10"><TextBlock Text="语言检测" Style="{StaticResource UiLabel}" /><TextBlock Name="DiagLang" Text="未执行" /></StackPanel>
+                    <StackPanel Margin="0,0,0,10"><TextBlock Text="翻译队列" Style="{StaticResource UiLabel}" /><TextBlock Name="DiagQueue" Text="0" /></StackPanel>
+                    <StackPanel Margin="0,0,12,10"><TextBlock Text="翻译结果" Style="{StaticResource UiLabel}" /><TextBlock Name="DiagResults" Text="0 条" /></StackPanel>
+                    <StackPanel Margin="0,0,0,10"><TextBlock Text="译文覆盖层" Style="{StaticResource UiLabel}" /><TextBlock Name="DiagOverlay" Text="0 条" /></StackPanel>
+                    <StackPanel Margin="0,0,12,10"><TextBlock Text="自动扫描" Style="{StaticResource UiLabel}" /><TextBlock Name="DiagScanStatus" Text="未启动" TextWrapping="Wrap" /></StackPanel>
+                    <StackPanel Margin="0,0,0,10"><TextBlock Text="自动恢复" Style="{StaticResource UiLabel}" /><TextBlock Name="DiagRecovery" Text="0 次" /></StackPanel>
+                    <StackPanel Margin="0,0,12,10"><TextBlock Text="最近扫描" Style="{StaticResource UiLabel}" /><TextBlock Name="DiagLastScan" Text="—" /></StackPanel>
+                    <StackPanel Margin="0,0,0,10"><TextBlock Text="最近捕获" Style="{StaticResource UiLabel}" /><TextBlock Name="DiagLastCapture" Text="—" /></StackPanel>
+                  </UniformGrid>
+                  <TextBlock Name="DiagDetail" Style="{StaticResource UiCaption}" Margin="0,4,0,0" />
+                </StackPanel>
+              </StackPanel>
+            </ContentControl>
+          </StackPanel>
+        </ScrollViewer>
+      </TabItem>
+
+      <TabItem Header="引擎">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+          <ContentControl Style="{StaticResource UiCard}" Margin="24,9,24,24">
+            <StackPanel>
+              <TextBlock Text="翻译引擎" Style="{StaticResource UiHeading}" />
+              <TextBlock Text="选择用于翻译 Steam 页面文字的服务。" Style="{StaticResource UiCaption}" Margin="0,5,0,12" />
+              <WrapPanel Margin="0,0,0,9">
+                <RadioButton Name="RbEngineGoogle" Content="Google 网页" GroupName="Engine" Margin="0,0,24,0" />
+                <RadioButton Name="RbEngineBing" Content="Bing 网页" GroupName="Engine" Margin="0,0,24,0" />
+                <RadioButton Name="RbEngineLocal" Content="本地离线" GroupName="Engine" Margin="0,0,24,0" />
+                <RadioButton Name="RbEngineLibre" Content="LibreTranslate" GroupName="Engine" Margin="0,0,24,0" />
+                <RadioButton Name="RbEngineAzure" Content="Azure Translator" GroupName="Engine" />
+              </WrapPanel>
+              <CheckBox Name="CbAutoFallback" Content="自动使用备用引擎补译失败段落" />
+              <Border Name="PanelGoogle" Style="{StaticResource UiPanel}" Margin="0,16,0,0">
+                <StackPanel>
+                  <TextBlock Text="Google 网页翻译" Style="{StaticResource UiHeading}" FontSize="18" />
+                  <CheckBox Name="CbGoogleEnabled" Content="启用 Google 网页翻译" Margin="0,8,0,0" />
+                  <TextBlock Text="无需密钥。网页接口可能限频，服务可用性取决于网络和端点。" Style="{StaticResource UiCaption}" Margin="0,6,0,12" />
+                  <Button Name="BtnTestGoogle" Content="测试连接" HorizontalAlignment="Left" />
+                  <TextBlock Name="GoogleStatus" Style="{StaticResource UiCaption}" Margin="0,6,0,0" />
+                </StackPanel>
+              </Border>
+              <Border Name="PanelBing" Style="{StaticResource UiPanel}" Margin="0,16,0,0" Visibility="Collapsed">
+                <StackPanel>
+                  <TextBlock Text="Bing 网页翻译" Style="{StaticResource UiHeading}" FontSize="18" />
+                  <CheckBox Name="CbBingEnabled" Content="启用 Bing 网页翻译" Margin="0,8,0,0" />
+                  <TextBlock Text="无需密钥。网页端点或令牌机制变更时，服务可能暂时不可用。" Style="{StaticResource UiCaption}" Margin="0,6,0,12" />
+                  <Button Name="BtnTestBing" Content="测试连接" HorizontalAlignment="Left" />
+                  <TextBlock Name="BingStatus" Style="{StaticResource UiCaption}" Margin="0,6,0,0" />
+                </StackPanel>
+              </Border>
+              <Border Name="PanelLocal" Style="{StaticResource UiPanel}" Margin="0,16,0,0" Visibility="Collapsed">
+                <StackPanel>
+                  <TextBlock Text="本地离线引擎" Style="{StaticResource UiHeading}" FontSize="18" />
+                  <TextBlock Name="LocalEngineStatus" Text="状态：未安装" Style="{StaticResource UiCaption}" Margin="0,6,0,12" />
+                  <WrapPanel>
+                    <Button Name="BtnInstallEngine" Content="安装本地引擎（约 100 MB）" Margin="0,0,12,8" />
+                    <Button Name="BtnRepairEngine" Content="修复引擎" Margin="0,0,12,8" />
+                  </WrapPanel>
+                  <ProgressBar Name="EngineProgress" Height="8" Margin="0,8,0,0" Minimum="0" Maximum="100" Visibility="Collapsed" />
+                  <TextBlock Name="EngineProgressText" Style="{StaticResource UiCaption}" Visibility="Collapsed" />
+                  <TextBlock Text="离线语言包" Style="{StaticResource UiLabel}" Margin="0,14,0,4" />
+                  <TextBlock Name="InstalledPackagesText" Text="已安装：无" Style="{StaticResource UiCaption}" Margin="0,0,0,12" />
+                  <WrapPanel>
+                    <Button Name="BtnInstallEnZh" Content="安装英语包" Tag="en" Margin="0,0,12,8" />
+                    <Button Name="BtnInstallJaZh" Content="安装日语包" Tag="ja" Margin="0,0,12,8" />
+                    <Button Name="BtnInstallKoZh" Content="安装韩语包" Tag="ko" Margin="0,0,12,8" />
+                  </WrapPanel>
+                  <TextBlock Name="PackageProgressText" Style="{StaticResource UiCaption}" Visibility="Collapsed" />
+                </StackPanel>
+              </Border>
+              <Border Name="PanelLibre" Style="{StaticResource UiPanel}" Margin="0,16,0,0" Visibility="Collapsed">
+                <StackPanel>
+                  <TextBlock Text="LibreTranslate" Style="{StaticResource UiHeading}" FontSize="18" />
+                  <TextBlock Text="服务地址" Style="{StaticResource UiLabel}" Margin="0,14,0,6" />
+                  <TextBox Name="TxtLibreUrl" AutomationProperties.Name="LibreTranslate 服务地址" />
+                  <TextBlock Text="API 密钥（可选）" Style="{StaticResource UiLabel}" Margin="0,14,0,6" />
+                  <PasswordBox Name="TxtLibreKey" AutomationProperties.Name="LibreTranslate API 密钥" />
+                  <Button Name="BtnSaveLibre" Content="保存并测试" HorizontalAlignment="Left" Margin="0,16,0,0" />
+                  <TextBlock Name="LibreStatus" Style="{StaticResource UiCaption}" Margin="0,6,0,0" />
+                </StackPanel>
+              </Border>
+              <Border Name="PanelAzure" Style="{StaticResource UiPanel}" Margin="0,16,0,0" Visibility="Collapsed">
+                <StackPanel>
+                  <TextBlock Text="Azure Translator" Style="{StaticResource UiHeading}" FontSize="18" />
+                  <TextBlock Text="API 密钥" Style="{StaticResource UiLabel}" Margin="0,14,0,6" />
+                  <PasswordBox Name="TxtApiKey" AutomationProperties.Name="Azure API 密钥" ToolTip="在 Azure Portal 创建 Translator 资源后获取" />
+                  <TextBlock Text="区域（例如 eastasia 或 global）" Style="{StaticResource UiLabel}" Margin="0,14,0,6" />
+                  <TextBox Name="TxtRegion" Text="global" AutomationProperties.Name="Azure 区域" />
+                  <Button Name="BtnSaveKey" Content="保存并测试" HorizontalAlignment="Left" Margin="0,16,0,0" />
+                  <TextBlock Name="KeyStatus" Style="{StaticResource UiCaption}" Margin="0,6,0,0" />
+                </StackPanel>
+              </Border>
+            </StackPanel>
+          </ContentControl>
+        </ScrollViewer>
+      </TabItem>
+
+      <TabItem Header="显示">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+          <StackPanel Margin="24,9,24,24">
+            <ContentControl Style="{StaticResource UiCard}" Padding="24,20">
+              <StackPanel>
+                <TextBlock Text="显示与布局" Style="{StaticResource UiHeading}" />
+                <TextBlock Text="译文内容" Style="{StaticResource UiLabel}" Margin="0,15,0,4" />
+                <WrapPanel>
+                  <RadioButton Name="RbOriginal" Content="仅原文" GroupName="DisplayMode" Margin="0,0,24,0" />
+                  <RadioButton Name="RbBilingual" Content="双语显示" GroupName="DisplayMode" Margin="0,0,24,0" />
+                  <RadioButton Name="RbChinese" Content="仅中文" GroupName="DisplayMode" />
+                </WrapPanel>
+                <TextBlock Text="译文位置" Style="{StaticResource UiLabel}" Margin="0,14,0,4" />
+                <WrapPanel>
+                  <RadioButton Name="RbLayoutSide" Content="旁边模式" GroupName="LayoutMode" Margin="0,0,24,0" />
+                  <RadioButton Name="RbLayoutOverlay" Content="覆盖模式" GroupName="LayoutMode" Margin="0,0,24,0" />
+                  <RadioButton Name="RbLayoutAdaptive" Content="自适应" GroupName="LayoutMode" />
+                </WrapPanel>
+                <CheckBox Name="CbShowOriginal" Content="双语模式下显示原文" Margin="0,10,0,0" />
+              </StackPanel>
+            </ContentControl>
+            <ContentControl Style="{StaticResource UiCard}" Margin="0,24,0,0">
+              <Grid>
+                <Grid.ColumnDefinitions><ColumnDefinition Width="128" /><ColumnDefinition Width="*" /><ColumnDefinition Width="68" /></Grid.ColumnDefinitions>
+                <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="37" /><RowDefinition Height="37" /><RowDefinition Height="37" /><RowDefinition Height="37" /></Grid.RowDefinitions>
+                <TextBlock Text="阅读细节" Style="{StaticResource UiHeading}" FontSize="20" Grid.ColumnSpan="3" Margin="0,0,0,10" />
+                <TextBlock Grid.Row="1" Text="覆盖透明度" VerticalAlignment="Center" />
+                <Slider Style="{StaticResource UiSlider}" Name="SliderOverlayOpacity" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Minimum="0.2" Maximum="1" Value="0.82" TickFrequency="0.05" IsSnapToTickEnabled="True" AutomationProperties.Name="覆盖透明度" />
+                <TextBlock Name="LblOverlayOpacity" Grid.Row="1" Grid.Column="2" Text="82%" TextAlignment="Right" VerticalAlignment="Center" />
+                <TextBlock Grid.Row="2" Text="字体缩放" VerticalAlignment="Center" />
+                <Slider Style="{StaticResource UiSlider}" Name="SliderFontScale" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Minimum="0.6" Maximum="1.8" Value="1" TickFrequency="0.1" IsSnapToTickEnabled="True" AutomationProperties.Name="字体缩放" />
+                <TextBlock Name="LblFontScale" Grid.Row="2" Grid.Column="2" Text="1.0x" TextAlignment="Right" VerticalAlignment="Center" />
+                <TextBlock Grid.Row="3" Text="最大译文宽度" VerticalAlignment="Center" />
+                <Slider Style="{StaticResource UiSlider}" Name="SliderMaxWidth" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Minimum="150" Maximum="700" Value="420" TickFrequency="10" IsSnapToTickEnabled="True" AutomationProperties.Name="最大译文宽度" />
+                <TextBlock Name="LblMaxWidth" Grid.Row="3" Grid.Column="2" Text="420px" TextAlignment="Right" VerticalAlignment="Center" />
+                <TextBlock Grid.Row="4" Text="双语间距" VerticalAlignment="Center" />
+                <Slider Style="{StaticResource UiSlider}" Name="SliderBilingualGap" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Minimum="0" Maximum="16" Value="4" TickFrequency="1" IsSnapToTickEnabled="True" AutomationProperties.Name="双语间距" />
+                <TextBlock Name="LblBilingualGap" Grid.Row="4" Grid.Column="2" Text="4px" TextAlignment="Right" VerticalAlignment="Center" />
+              </Grid>
+            </ContentControl>
+          </StackPanel>
+        </ScrollViewer>
+      </TabItem>
+
+      <TabItem Header="范围">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+          <ContentControl Style="{StaticResource UiCard}" Margin="24,9,24,24">
+            <StackPanel>
+              <TextBlock Text="翻译范围" Style="{StaticResource UiHeading}" />
+              <TextBlock Text="勾选需要自动翻译的 Steam 页面类型。" Style="{StaticResource UiCaption}" Margin="0,5,0,20" />
+              <UniformGrid Columns="2">
+                <Border Style="{StaticResource UiPanel}" Margin="0,0,12,12"><CheckBox Name="CbWorkshop" Content="创意工坊" /></Border>
+                <Border Style="{StaticResource UiPanel}" Margin="0,0,0,12"><CheckBox Name="CbReviews" Content="游戏评价" /></Border>
+                <Border Style="{StaticResource UiPanel}" Margin="0,0,12,12"><CheckBox Name="CbCommunity" Content="社区讨论" /></Border>
+                <Border Style="{StaticResource UiPanel}" Margin="0,0,0,12"><CheckBox Name="CbStore" Content="商店" /></Border>
+                <Border Style="{StaticResource UiPanel}" Margin="0,0,12,0"><CheckBox Name="CbGuides" Content="指南" /></Border>
+              </UniformGrid>
+            </StackPanel>
+          </ContentControl>
+        </ScrollViewer>
+      </TabItem>
+
+      <TabItem Header="统计">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+          <ContentControl Style="{StaticResource UiCard}" Margin="24,9,24,24">
+            <StackPanel>
+              <TextBlock Text="使用统计" Style="{StaticResource UiHeading}" />
+              <TextBlock Text="查看本次会话的请求、缓存和翻译结果。" Style="{StaticResource UiCaption}" Margin="0,5,0,20" />
+              <UniformGrid Columns="3">
+                <Border Style="{StaticResource UiPanel}" Margin="0,0,10,10"><StackPanel><TextBlock Text="本会话请求数" Style="{StaticResource UiLabel}" /><TextBlock Name="StatRequests" Text="0" FontSize="26" FontWeight="Bold" /></StackPanel></Border>
+                <Border Style="{StaticResource UiPanel}" Margin="0,0,10,10"><StackPanel><TextBlock Text="本会话字符数" Style="{StaticResource UiLabel}" /><TextBlock Name="StatCharacters" Text="0" FontSize="26" FontWeight="Bold" /></StackPanel></Border>
+                <Border Style="{StaticResource UiPanel}" Margin="0,0,0,10"><StackPanel><TextBlock Text="缓存条数" Style="{StaticResource UiLabel}" /><TextBlock Name="StatCache" Text="0" FontSize="26" FontWeight="Bold" /></StackPanel></Border>
+                <Border Style="{StaticResource UiPanel}" Margin="0,0,10,0"><StackPanel><TextBlock Text="翻译成功" Style="{StaticResource UiLabel}" /><TextBlock Name="StatSuccess" Text="0" FontSize="26" FontWeight="Bold" Foreground="{StaticResource UiSuccess}" /></StackPanel></Border>
+                <Border Style="{StaticResource UiPanel}" Margin="0,0,10,0"><StackPanel><TextBlock Text="翻译失败" Style="{StaticResource UiLabel}" /><TextBlock Name="StatFail" Text="0" FontSize="26" FontWeight="Bold" Foreground="{StaticResource UiError}" /></StackPanel></Border>
+                <Border Style="{StaticResource UiPanel}"><StackPanel><TextBlock Text="平均翻译耗时" Style="{StaticResource UiLabel}" /><TextBlock Name="StatAvgMs" Text="—" FontSize="26" FontWeight="Bold" /></StackPanel></Border>
+              </UniformGrid>
+            </StackPanel>
+          </ContentControl>
+        </ScrollViewer>
+      </TabItem>
+    </TabControl>
+
+    <Grid Grid.Row="2" Margin="25,8,25,14">
+      <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+      <TextBlock Text="译文仅显示在前台 Steam 页面内" Style="{StaticResource UiCaption}" VerticalAlignment="Center" />
+      <StackPanel Grid.Column="1" Orientation="Horizontal">
+        <Button Name="BtnExportDiag" Content="导出诊断" Margin="0,0,12,0" />
+        <Button Name="BtnExit" Content="退出" />
+      </StackPanel>
+    </Grid>
+  </Grid>
+</Grid>
