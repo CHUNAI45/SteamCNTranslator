@@ -1,0 +1,514 @@
+[
+  {
+    "Scope": "global",
+    "SourceTerm": "Steam",
+    "TargetTerm": "Steam",
+    "Action": "Preserve",
+    "CaseSensitive": true,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Steam Workshop",
+    "TargetTerm": "Steam 创意工坊",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Workshop",
+    "TargetTerm": "创意工坊",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "DLC",
+    "TargetTerm": "DLC",
+    "Action": "Preserve",
+    "CaseSensitive": true,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "VAC",
+    "TargetTerm": "VAC",
+    "Action": "Preserve",
+    "CaseSensitive": true,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Valve Anti-Cheat",
+    "TargetTerm": "Valve 反作弊系统",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Mod",
+    "TargetTerm": "Mod",
+    "Action": "Preserve",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "VR",
+    "TargetTerm": "VR",
+    "Action": "Preserve",
+    "CaseSensitive": true,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "FPS",
+    "TargetTerm": "FPS",
+    "Action": "Preserve",
+    "CaseSensitive": true,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "RPG",
+    "TargetTerm": "RPG",
+    "Action": "Preserve",
+    "CaseSensitive": true,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "MMO",
+    "TargetTerm": "MMO",
+    "Action": "Preserve",
+    "CaseSensitive": true,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "PvP",
+    "TargetTerm": "PvP",
+    "Action": "Preserve",
+    "CaseSensitive": true,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "PvE",
+    "TargetTerm": "PvE",
+    "Action": "Preserve",
+    "CaseSensitive": true,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Steam Deck",
+    "TargetTerm": "Steam Deck",
+    "Action": "Preserve",
+    "CaseSensitive": true,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Steam Cloud",
+    "TargetTerm": "Steam 云存档",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Steam Overlay",
+    "TargetTerm": "Steam 界面覆盖层",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Trading Card",
+    "TargetTerm": "集换式卡牌",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Achievement",
+    "TargetTerm": "成就",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Wishlist",
+    "TargetTerm": "愿望单",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Cart",
+    "TargetTerm": "购物车",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Checkout",
+    "TargetTerm": "结算",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Refund",
+    "TargetTerm": "退款",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Early Access",
+    "TargetTerm": "抢先体验",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Beta",
+    "TargetTerm": "Beta 测试",
+    "Action": "Context",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Patch",
+    "TargetTerm": "补丁",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Update",
+    "TargetTerm": "更新",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Changelog",
+    "TargetTerm": "更新日志",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Gameplay",
+    "TargetTerm": "玩法",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Walkthrough",
+    "TargetTerm": "通关攻略",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Guide",
+    "TargetTerm": "指南",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Review",
+    "TargetTerm": "评测",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Recommended",
+    "TargetTerm": "推荐",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Not Recommended",
+    "TargetTerm": "不推荐",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Community",
+    "TargetTerm": "社区",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Discussion",
+    "TargetTerm": "讨论",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Screenshot",
+    "TargetTerm": "截图",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Broadcast",
+    "TargetTerm": "直播",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Inventory",
+    "TargetTerm": "库存",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Profile",
+    "TargetTerm": "个人资料",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Friend",
+    "TargetTerm": "好友",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Group",
+    "TargetTerm": "群组",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Badge",
+    "TargetTerm": "徽章",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Level",
+    "TargetTerm": "等级",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Experience",
+    "TargetTerm": "经验值",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Points Shop",
+    "TargetTerm": "点数商店",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Steam Points",
+    "TargetTerm": "Steam 点数",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Market",
+    "TargetTerm": "社区市场",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Controller",
+    "TargetTerm": "控制器",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Keybinding",
+    "TargetTerm": "按键绑定",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Settings",
+    "TargetTerm": "设置",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Graphics",
+    "TargetTerm": "画面",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Audio",
+    "TargetTerm": "音频",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Multiplayer",
+    "TargetTerm": "多人游戏",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Single-player",
+    "TargetTerm": "单人游戏",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Co-op",
+    "TargetTerm": "合作模式",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Open World",
+    "TargetTerm": "开放世界",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Survival",
+    "TargetTerm": "生存",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Crafting",
+    "TargetTerm": "制作系统",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Loot",
+    "TargetTerm": "战利品",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Quest",
+    "TargetTerm": "任务",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "NPC",
+    "TargetTerm": "NPC",
+    "Action": "Preserve",
+    "CaseSensitive": true,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Boss",
+    "TargetTerm": "首领",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Skill Tree",
+    "TargetTerm": "技能树",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  },
+  {
+    "Scope": "global",
+    "SourceTerm": "Save File",
+    "TargetTerm": "存档文件",
+    "Action": "Force",
+    "CaseSensitive": false,
+    "Enabled": true
+  }
+]
