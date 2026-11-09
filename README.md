@@ -17,13 +17,11 @@
 
 ## 下载和使用
 
-1. 在 Releases 下载 `SteamCN-Translator-Windows-x64.zip`，解压到一个目录。
+1. 在 Releases 下载 `SteamCN-Translator-v1.1.0-Windows-x64.zip`，解压到一个目录。
 2. 打开 Steam 客户端，再运行解压后的 `SteamCN.App.exe`。首次使用时，在主窗口选择翻译引擎。
 3. 切回 Steam 并打开要看的页面。在线译文会逐段出现。需要重试当前页面时，点主窗口或悬浮球菜单里的「重新扫描」。
 
 当前发布包面向 Windows x64。在线翻译需要网络连接。画面中的原文能否被识别，取决于页面内容、可访问文本，以及 Windows 已安装的 OCR 语言组件。
-
-> 仓库目前处于发布准备阶段，v1.1.0 仍是 Release 草稿。公开下载会在版本发布后出现在 Releases。
 
 ## 显示方式
 
