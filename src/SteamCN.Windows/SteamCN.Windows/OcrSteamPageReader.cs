@@ -177,6 +177,7 @@ internal sealed class OcrSteamPageReader
         int width = frame.ToolbarWidth * 3;
         int height = frame.ToolbarHeight * 3;
         string? repairedSubscriptionUrl = null;
+        var observedStoreApps = new HashSet<string>(StringComparer.Ordinal);
         foreach (int threshold in new[] { 39, 35, 43, 31, 47, 23 })
         {
             var buffer = new byte[width * height * 4];
@@ -194,9 +195,14 @@ internal sealed class OcrSteamPageReader
             using var bitmap = SoftwareBitmap.CreateCopyFromBuffer(buffer.AsBuffer(),
                 BitmapPixelFormat.Bgra8, width, height, BitmapAlphaMode.Ignore);
             var result = await _addressReader.RecognizeAsync(bitmap).AsTask().ConfigureAwait(false);
+            var storeApps = new HashSet<string>(StringComparer.Ordinal);
             foreach (var line in result.Lines)
             {
                 string address = string.Concat(line.Text.Where(c => !char.IsWhiteSpace(c)));
+                // Steam displays localized game slugs. A verified app ID identifies the page
+                // even when the English address recognizer cannot read the slug.
+                if (TryReadStoreAppAddress(address, out string storeApp))
+                    storeApps.Add(storeApp);
                 if (!Regex.IsMatch(address, @"^https://(?:store\.steampowered\.com|steamcommunity\.com)/[A-Za-z0-9_/.?&=+%#~-]*$",
                     RegexOptions.CultureInvariant)) continue;
                 if (SteamPageReader.TryAllowedUrl(address, out string url)) return url;
@@ -204,8 +210,20 @@ internal sealed class OcrSteamPageReader
                 if (url == repairedSubscriptionUrl) return url;
                 repairedSubscriptionUrl = url;
             }
+            foreach (string storeApp in storeApps)
+                if (!observedStoreApps.Add(storeApp)) return storeApp;
         }
         return null;
+    }
+
+    private static bool TryReadStoreAppAddress(string address, out string url)
+    {
+        url = "";
+        var match = Regex.Match(address, @"^https://store\.steampowered\.com/app/([1-9][0-9]{0,9})(?:/|$)",
+            RegexOptions.CultureInvariant);
+        if (!match.Success || !uint.TryParse(match.Groups[1].Value, out uint appId)) return false;
+        url = $"https://store.steampowered.com/app/{appId}/";
+        return true;
     }
 
     private static bool TryRepairSubscriptionAddress(string address, out string url)
